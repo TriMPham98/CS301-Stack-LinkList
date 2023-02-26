@@ -21,11 +21,11 @@ StackType<T>::~StackType() {
 template<class T>
 bool StackType<T>::IsFull() const {
     try {
-        Node *location; = new Node;
+        Node *location = new Node;
         delete location;
         return false;
     }
-    catch (std::bad_alloc exception) {
+    catch (std::bad_alloc error) {
         return true;
     }
 }
