@@ -24,8 +24,7 @@ bool StackType<T>::IsFull() const {
         Node *location = new Node;
         delete location;
         return false;
-    }
-    catch (std::bad_alloc error) {
+    } catch (std::bad_alloc error) {
         return true;
     }
 }
@@ -39,33 +38,31 @@ bool StackType<T>::IsEmpty() const {
 // Adds newItem to the top of the stack
 template<class T>
 void StackType<T>::Push(T item) {
-    if (IsFull())
+    if (IsFull()) {
         throw FullStack();
-    else {
-        Node *location = new Node;
-        location->info = item;
-        location->next = topPtr;
-        topPtr = location;
     }
+    Node *location = new Node;
+    location->info = item;
+    location->next = topPtr;
+    topPtr = location;
 }
 
 // Removes top item from the stack
 template<class T>
 void StackType<T>::Pop() {
-    if (IsEmpty())
+    if (IsEmpty()) {
         throw EmptyStack();
-    else {
-        Node *temp = topPtr;
-        topPtr = topPtr->next;
-        delete temp;
     }
+    Node *temp = topPtr;
+    topPtr = topPtr->next;
+    delete temp;
 }
 
 // Returns a copy of top item on the stack
 template<class T>
 T StackType<T>::Top() {
-    if (IsEmpty())
+    if (IsEmpty()) {
         throw EmptyStack();
-    else
-        return topPtr->info;
+    }
+    return topPtr->info;
 }
