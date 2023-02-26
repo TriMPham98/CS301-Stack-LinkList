@@ -32,7 +32,7 @@ bool StackType<T>::IsFull() const {
 // Determines whether the stack is empty
 template<class T>
 bool StackType<T>::IsEmpty() const {
-    return (topPtr == nullptr);
+    return topPtr == nullptr;
 }
 
 // Adds newItem to the top of the stack
