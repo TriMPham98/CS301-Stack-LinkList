@@ -11,7 +11,7 @@ StackType<T>::StackType() {
 template<class T>
 StackType<T>::~StackType() {
     while (topPtr != nullptr) {
-        Node *temp; = topPtr;
+        Node *temp = topPtr;
         topPtr = topPtr->next;
         delete temp;
     }
