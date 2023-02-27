@@ -23,10 +23,10 @@ bool StackType<T>::IsFull() const {
     try {
         Node *location = new Node;
         delete location;
-        return false;
     } catch (std::bad_alloc error) {
         return true;
     }
+    return false;
 }
 
 // Determines whether the stack is empty
